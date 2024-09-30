@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'I’m Spencer, a software engineer and entrepreneur based in Barcelona. I’m the founder and CTO of Studio, where we develop technologies that empower regular people to explore space on their own terms.',
   alternates: {
     types: {
-      'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
+      'application/rss+xml': `${process.env.VERCEL_URL}/feed.xml`,
     },
   },
 }

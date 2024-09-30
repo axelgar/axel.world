@@ -6,13 +6,15 @@ import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
+import logoTorii from '@/images/logos/torii.png'
 import logoKing from '@/images/logos/king.png'
+import logoGamestry from '@/images/logos/gamestry.png'
 import logoStudio from '@/images/logos/studio.png'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoFifa from '@/images/logos/fifa.png'
+import logoPrestacam from '@/images/logos/prestacam.png'
+import logoIronhack from '@/images/logos/ironhack.svg'
 import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
+import image2 from '@/images/photos/image-2.png'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
@@ -137,6 +139,7 @@ function Newsletter() {
 
 interface Role {
   company: string
+  href?: string
   title: string
   logo: ImageProps['src']
   start: string | { label: string; dateTime: string }
@@ -165,7 +168,7 @@ function Role({ role }: { role: Role }) {
       <dl className="flex flex-auto flex-wrap gap-x-2">
         <dt className="sr-only">Company</dt>
         <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-          {role.company}
+          {role.href ? <a href={role.href}>{role.company} </a> : role.company}
         </dd>
         <dt className="sr-only">Role</dt>
         <dd className="text-xs text-zinc-500 dark:text-zinc-400">
@@ -189,7 +192,8 @@ function Resume() {
   let resume: Array<Role> = [
     {
       company: 'Studio',
-      title: 'CTO',
+      href: 'https://studioapp.co/',
+      title: 'CTO & Co-Founder',
       logo: logoStudio,
       start: '2023',
       end: {
@@ -199,24 +203,49 @@ function Resume() {
     },
     {
       company: 'King',
+      href: 'https://www.king.com/',
       title: 'Frontend Engineer',
       logo: logoKing,
-      start: '2014',
-      end: '2019',
+      start: '2021',
+      end: '2024',
     },
     {
       company: 'Gamestry',
       title: 'Head of Tech & Frontend Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      logo: logoGamestry,
+      start: '2020',
+      end: '2021',
     },
     {
-      company: 'Freelance',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      company: 'Torii Studio',
+      href: 'https://torii.studio/',
+      title: 'Freelance Frontend Engineer',
+      logo: logoTorii,
+      start: '2019',
+      end: '2021',
+    },
+    {
+      company: 'Ironhack',
+      href: 'https://www.ironhack.com/es-en',
+      title: 'PM and Frontend Engineer',
+      logo: logoIronhack,
+      start: '2019',
+      end: '2020',
+    },
+    {
+      company: 'Fifa',
+      href: 'https://www.fifa.gg/',
+      title: 'Freelance Frontend Engineer',
+      logo: logoFifa,
+      start: '2018',
+      end: '2019',
+    },
+    {
+      company: 'Prestacam',
+      title: 'Freelance Frontend Engineer',
+      logo: logoPrestacam,
+      start: '2018',
+      end: '2019',
     },
   ]
 
@@ -304,7 +333,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
+            {/* <Newsletter /> */}
             <Resume />
           </div>
         </div>
